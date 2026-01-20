@@ -1,16 +1,53 @@
-# React + Vite
+# 🎬 CineScope
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+CineScope es una aplicación web desarrollada con **React** y **Vite** que permite explorar un catálogo de películas de manera sencilla e intuitiva.  
+El proyecto consume la API de **The Movie Database (TMDb)** para mostrar información actualizada sobre títulos populares, estrenos y detalles completos de cada película.
 
-Currently, two official plugins are available:
+## 🚀 Características principales
+- **Página de inicio (Home):** listado de películas populares en formato grid.
+- **Buscador:** permite encontrar películas por título en tiempo real.
+- **Página de detalle:** muestra información completa de cada película (sinopsis, géneros, reparto, puntuación).
+- **Rutas dinámicas:** navegación con React Router (`/` para Home, `/movie/:id` para detalle).
+- **Loading states:** indicador visual mientras se cargan los datos.
+- **Manejo de errores:** mensajes claros cuando no hay resultados o la API falla.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠️ Tecnologías utilizadas
+- **React + Vite** → framework y bundler para desarrollo rápido.
+- **React Router** → gestión de rutas y navegación.
+- **Axios / Fetch API** → consumo de la API de TMDb.
+- **CSS / Tailwind (opcional)** → estilos y diseño responsivo.
 
-## React Compiler
+## 📂 Estructura del proyecto
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+src/
+├── components/
+│    ├── MovieCard.jsx
+│    ├── SearchBar.jsx
+│    ├── Loader.jsx
+│    └── ErrorMessage.jsx
+├── pages/
+│    ├── Home.jsx
+│    ├── MovieDetail.jsx
+│    └── NotFound.jsx
+├── routes/
+│    └── AppRouter.jsx
+├── services/
+│    └── api.js
+├── App.jsx
+└── main.jsx
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🔑 Recursos
+- API: [The Movie Database (TMDb)](https://developer.themoviedb.org)
+- Requiere **API Key** para las peticiones.
+
+## 🎯 Objetivo
+El propósito de este proyecto es practicar y aplicar conceptos fundamentales de React como:
+- Componentes reutilizables.
+- Hooks (`useState`, `useEffect`).
+- Rutas dinámicas con React Router.
+- Manejo de estados de carga y error.
+- Consumo de APIs externas.
+
+---
+✨ *CineScope: tu ventana al universo del cine.*
