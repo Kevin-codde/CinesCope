@@ -18,23 +18,56 @@ El proyecto consume la API de **The Movie Database (TMDb)** para mostrar informa
 - **CSS / Tailwind (opcional)** → estilos y diseño responsivo.
 
 ## 📂 Estructura del proyecto
-
+```
 src/
-├── components/
-│    ├── MovieCard.jsx
-│    ├── SearchBar.jsx
-│    ├── Loader.jsx
-│    └── ErrorMessage.jsx
-├── pages/
-│    ├── Home.jsx
-│    ├── MovieDetail.jsx
-│    └── NotFound.jsx
-├── routes/
-│    └── AppRouter.jsx
-├── services/
-│    └── api.js
-├── App.jsx
-└── main.jsx
+
+  ├── components/          # Componentes reutilizables de la interfaz
+  │   ├── MovieCard.jsx    # Tarjeta individual de película
+  │   ├── SearchBar.jsx    # Barra de búsqueda
+  │   ├── Loader.jsx       # Componente de loading (spinner/esqueleto)
+  │   └── ErrorMessage.jsx # Visualización de estados de error
+
+  ├── pages/               # Vistas principales (vistas de ruta)
+  │   ├── Home.jsx         # Página principal con el listado de películas
+  │   ├── MovieDetail.jsx  # Información detallada de una película específica
+  │   └── NotFound.jsx     # Vista para rutas no encontradas (404)
+
+  ├── routes/              # Configuración de navegación
+  │   └── AppRouter.jsx    # Definición de rutas y switch principal
+
+  ├── services/            # Lógica de comunicación externa
+  │   └── api.js           # Funciones para llamadas a la API (fetch/axios)
+
+  ├── App.jsx              # Componente raíz de la aplicación
+  └── main.jsx             # Punto de entrada al DOM de React
+```
+
+## 📖 Descripción de carpetas y archivos
+
+### 🔹 `components/`
+Contiene componentes reutilizables:
+- **MovieCard.jsx** → Renderiza la tarjeta de cada película (imagen, título, año).  
+- **SearchBar.jsx** → Barra de búsqueda para encontrar películas.  
+- **Loader.jsx** → Indicador visual de carga.  
+- **ErrorMessage.jsx** → Muestra mensajes de error cuando la API falla o no hay resultados.  
+
+### 🔹 `pages/`
+Define las páginas principales de la aplicación:
+- **Home.jsx** → Página inicial con listado de películas.  
+- **MovieDetail.jsx** → Página de detalle con información completa de una película.  
+- **NotFound.jsx** → Página 404 para rutas inexistentes.  
+
+### 🔹 `routes/`
+- **AppRouter.jsx** → Configuración de rutas con React Router.  
+
+### 🔹 `services/`
+- **api.js** → Funciones para consumir la API de TMDb.  
+
+### 🔹 Archivos raíz
+- **App.jsx** → Componente principal que organiza la aplicación.  
+- **main.jsx** → Punto de entrada que renderiza la app en el DOM.  
+
+---
 
 
 ## 🔑 Recursos
