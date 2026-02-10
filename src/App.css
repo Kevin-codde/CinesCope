@@ -1,42 +1,140 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+
+:root{
+  background-color: lch(5.09% 0.59 290.19 / 0.986);
+}
+span{
+  color: #ddd;
+}
+.movieCard {
+  display: inline-block;
+  width: 220px;
+  margin: 1rem;
+  padding: 1rem;
+  background: #1c1c1c;
+  color: #fff;
+  border-radius: 12px;
   text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.movieCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.4);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.movieCard img {
+  border-radius: 8px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 0.5rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.movieCard h3 {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+  color: #ffcc00; /* tono llamativo como el hover de logo */
 }
 
-.card {
-  padding: 2em;
+.movieCard p {
+  font-size: 0.9rem;
+  margin: 0.3rem 0;
+  color: #ddd;
 }
 
-.read-the-docs {
-  color: #888;
+.movieCard .rating {
+  font-weight: bold;
+  color: #61dafb; /* azul React para mantener coherencia */
 }
+
+.footer {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: #1c1c1c;
+  color: #ddd;
+  text-align: center;
+  border-top: 1px solid #333;
+}
+
+.footer p {
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+}
+
+.footer-links {
+  margin-top: 0.5rem;
+}
+
+.footer-links a {
+  margin: 0 0.8rem;
+  color: #61dafb; /* azul React para coherencia */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #ffcc00; /* amarillo llamativo como en las tarjetas */
+}
+.header {
+  background-color: #1c1c1c;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #333;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between; /* perfil a la izquierda, buscador a la derecha */
+  align-items: center;
+}
+
+.nav-link {
+  color: #ddd;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #61dafb; /* azul React */
+}
+
+.nav-form {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-search {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  border: 1px solid #444;
+  background-color: #2c2c2c;
+  color: #fff;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+.nav-search:focus {
+  border: 1px solid #61dafb;
+}
+
+.nav-button {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  border: none;
+  background-color: #61dafb;
+  color: #1c1c1c;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.nav-button:hover {
+  background-color: #ffcc00; /* amarillo cine */
+  color: #000;
+}
+
+.logo{
+  width: 105px;
+}
+
