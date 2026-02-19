@@ -1,4 +1,6 @@
 //Mostrar catalogo populares en menu principal
+
+
 const dataMovie = async function (){
   const options = {
   method: 'GET',
@@ -11,9 +13,11 @@ const dataMovie = async function (){
     const peticion = await fetch('https://api.themoviedb.org/3/movie/popular?language=es-ES&page=1', options)
     const data = await peticion.json();
     return data.results;
+    
   }
   catch(e){
       console.log('Error',e)
+     
   }
 
   
@@ -37,6 +41,7 @@ const search = async function(movie){
     
   }catch(e){
     console.log('Error encontrado: ',e)
+
   }
 
   

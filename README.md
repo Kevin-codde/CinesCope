@@ -24,8 +24,8 @@ src/
   ├── components/          # Componentes reutilizables de la interfaz
   │   ├── MovieCard.jsx    # Tarjeta individual de película
   │   ├── SearchBar.jsx    # Barra de búsqueda
-  │   ├── Loader.jsx       # Componente de loading (spinner/esqueleto)
-  │   └── ErrorMessage.jsx # Visualización de estados de error
+  │   └── Loader.jsx       # Componente de loading (spinner/esqueleto)    
+  │               
 
   ├── pages/               # Vistas principales (vistas de ruta)
   │   ├── Home.jsx         # Página principal con el listado de películas
@@ -49,7 +49,6 @@ Contiene componentes reutilizables:
 - **MovieCard.jsx** → Renderiza la tarjeta de cada película (imagen, título, año).  
 - **SearchBar.jsx** → Barra de búsqueda para encontrar películas.  
 - **Loader.jsx** → Indicador visual de carga.  
-- **ErrorMessage.jsx** → Muestra mensajes de error cuando la API falla o no hay resultados.  
 
 ### 🔹 `pages/`
 Define las páginas principales de la aplicación:

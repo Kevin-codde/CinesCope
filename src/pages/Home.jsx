@@ -3,10 +3,12 @@ import MovieCard from '../components/MovieCard'
 import {dataMovie} from '../services/api'
 import { useState } from "react";
 import SearchBar from "../components/SearchBar";
+import ErrorMessage from "../components/ErrorMessage";
 
 const Home = function(){
     const [clicked,setClick] = useState(false);
     const [busqueda,setBusqueda] = useState('');
+  
     return(
         <div>
              <header className="header">
@@ -28,11 +30,13 @@ const Home = function(){
         </nav>
         </header>
 
-          {!clicked ? <div> <span >Catalogo de Peliculas</span>
-                            <MovieCard req={dataMovie()}/></div>
-          : <div><SearchBar mvs={busqueda}/></div> 
+          {
+            !clicked ? <div> <span >Catalogo de Peliculas</span>
+                              <MovieCard req={dataMovie()}/>
+                              
+                              </div>
+            : <div><SearchBar mvs={busqueda}/></div> 
          }
-         
           <footer className="footer">
              <p>© {new Date().getFullYear()} Kevin Andres Bejarano Tello 👨‍💻 · Todos los derechos reservados</p> 
              <nav className="footer-links"> 

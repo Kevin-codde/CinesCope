@@ -8,6 +8,7 @@ const SearchBar = function({mvs}){
         <div>
             
             <span>Resultados de busqueda</span>
+            
             <MovieCard req={search(mvs)}/>
         </div>
     )

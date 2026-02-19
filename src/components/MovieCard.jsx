@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import Loader from "./Loader";
 import { useEffect } from "react";
-
+import ErrorMessage from "./ErrorMessage";
+import NotFound from "../pages/NotFound";
 
 const MovieCard = function ({req}){
 
     const [data,setData] = useState([]);
     const [load,setLoad] = useState(true);
+    
 
     useEffect(()=>{
 
@@ -19,7 +21,6 @@ const MovieCard = function ({req}){
             }
             catch(e){
                 console.log(e)
-                
                 
             }
         }
@@ -34,10 +35,16 @@ const MovieCard = function ({req}){
                 
                    { !load ?
                        (
-                        
+                            
+                        data.length == 0 ? <div><NotFound/></div>
+                        :
                         <ul>
                             {
-                            data.map((movie)=>(
+                            
+                          
+                            data.map((movie,key)=>(
+                               
+                                
                                 <li key={movie.id} className="movieCard">
                                 <img 
                                     src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} 
@@ -51,6 +58,7 @@ const MovieCard = function ({req}){
                                     <p className="overview">{movie.overview.substring(0, 100)}...</p>
                                 </div>
                                 </li>
+                                
                             ))
                             }
                         </ul>
