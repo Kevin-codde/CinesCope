@@ -3,7 +3,7 @@ import MovieCard from '../components/MovieCard'
 import {dataMovie} from '../services/api'
 import { useState } from "react";
 import SearchBar from "../components/SearchBar";
-import ErrorMessage from "../components/ErrorMessage";
+import { Link } from "react-router-dom";
 
 const Home = function(){
     const [clicked,setClick] = useState(false);
@@ -13,8 +13,8 @@ const Home = function(){
         <div>
              <header className="header">
         <nav className="navbar">
-          <a href="#"><img src="/CineScope.png" alt="logo"  className='logo'/></a>
-          <a href="#" className="nav-link" title="Perfil">👤 Perfil</a>
+           <Link to="/"><img src="/CineScope.png" alt="logo"  className='logo'/></Link>
+           <Link to="/user">👤User</Link>
           <form className="nav-form">
             <input 
               type="text" 

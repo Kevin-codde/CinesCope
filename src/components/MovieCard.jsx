@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import Loader from "./Loader";
 import { useEffect } from "react";
-import ErrorMessage from "./ErrorMessage";
 import NotFound from "../pages/NotFound";
+import { Link } from "react-router-dom";
+import { captureKey } from "../pages/MovieDetail";
 
 const MovieCard = function ({req}){
 
@@ -42,10 +43,10 @@ const MovieCard = function ({req}){
                             {
                             
                           
-                            data.map((movie,key)=>(
+                            data.map((movie)=>(
                                
-                                
-                                <li key={movie.id} className="movieCard">
+                                <Link to={`/movie/${movie.id}`}key={movie.id}  onClick={()=>captureKey(movie.id,data)}>
+                                <li  className="movieCard" >
                                 <img 
                                     src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} 
                                     alt={movie.title} 
@@ -58,6 +59,7 @@ const MovieCard = function ({req}){
                                     <p className="overview">{movie.overview.substring(0, 100)}...</p>
                                 </div>
                                 </li>
+                                </Link>
                                 
                             ))
                             }
