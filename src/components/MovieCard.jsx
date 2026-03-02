@@ -45,7 +45,7 @@ const MovieCard = function ({req}){
                           
                             data.map((movie)=>(
                                
-                                <Link to={`/movie/${movie.id}`}key={movie.id}  onClick={()=>captureKey(movie.id,data)}>
+                                <Link to={`/movie/${movie.id}`}key={movie.id}  onClick={()=>captureKey(movie.id,data) }className="nav-link">
                                 <li  className="movieCard" >
                                 <img 
                                     src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} 

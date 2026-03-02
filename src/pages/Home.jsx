@@ -9,46 +9,56 @@ const Home = function(){
     const [clicked,setClick] = useState(false);
     const [busqueda,setBusqueda] = useState('');
   
-    return(
-        <div>
-             <header className="header">
-        <nav className="navbar">
-           <Link to="/"><img src="/CineScope.png" alt="logo"  className='logo'/></Link>
-           <Link to="/user">👤User</Link>
-          <form className="nav-form">
-            <input 
-              type="text" 
-              className="nav-search" 
-              placeholder="🔍 Buscar películas..."
-              onChange={(e)=>{setBusqueda(e.target.value)
-                setClick(false);
-              }} 
-            />
-            <button type="button" className="nav-button" onClick={()=>{setClick(true)
-            }}>Buscar</button>
-          </form>
-        </nav>
-        </header>
+    return (
+  <div className="appLayout">
 
-          {
-            !clicked ? <div> <span >Catalogo de Peliculas</span>
-                              <MovieCard req={dataMovie()}/>
-                              
-                              </div>
-            : <div><SearchBar mvs={busqueda}/></div> 
-         }
-          <footer className="footer">
-             <p>© {new Date().getFullYear()} Kevin Andres Bejarano Tello 👨‍💻 · Todos los derechos reservados</p> 
-             <nav className="footer-links"> 
-              <a href="https://github.com/kevin-codde" target="_blank" rel="noopener noreferrer">GitHub</a> 
-              <a href="https://linkedin.com/in/example.com" target="_blank" rel="noopener noreferrer">LinkedIn</a> 
-              <a href="mailto:kevin.bejarano@correounivalle.edu.co">Contacto</a> 
-              </nav> 
-             </footer>
-        </div>
+    <header className="header">
+      <nav className="navbar">
+        <Link to="/">
+          <img src="/CineScope.png" alt="logo" className="logo" />
+        </Link>
 
-        
-    )
+        <Link to="/user" className="nav-link">👤 User</Link>
+
+        <form className="nav-form">
+          <input 
+            type="text" 
+            className="nav-search" 
+            placeholder="🔍 Buscar películas..."
+            onChange={(e)=>{
+              setBusqueda(e.target.value);
+              setClick(false);
+            }} 
+          />
+          <button 
+            type="button" 
+            className="nav-button"
+            onClick={()=> setClick(true)}
+          >
+            Buscar
+          </button>
+        </form>
+      </nav>
+    </header>
+
+    <main className="mainContent">
+      {
+        !clicked 
+          ? (
+            <>
+              <h2 className="sectionTitle">Catálogo de Películas</h2>
+              <MovieCard req={dataMovie()} />
+            </>
+          )
+          : <SearchBar mvs={busqueda}/>
+      }
+    </main>
+
+    
+    
+
+  </div>
+);
 }
 
 export default Home;

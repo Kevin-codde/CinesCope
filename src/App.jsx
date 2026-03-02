@@ -5,7 +5,7 @@ import './App.css'
 import Home from './pages/Home';
 import { BrowserRouter } from 'react-router-dom';
 import AppRouter from './routes/AppRouter';
-
+import Footer from './components/Footer';
 
 
 function App() {
@@ -16,6 +16,7 @@ function App() {
         <BrowserRouter>
            <AppRouter/>
        </BrowserRouter>
+       <Footer />
       </div>
     
   )

@@ -14,20 +14,43 @@ const MovieDetail = function(){
     
     return(
         <div>
-              <Back/>
-              <h1>Descripcion </h1>  
-              {
-                
-                data.map((m)=>(
-                    <div key={m.id}>
-                        <h1>{m.title}</h1>
-                        <img src={`https://image.tmdb.org/t/p/w200${m.poster_path}`}  />
-                        <p>{m.overview}</p>
-                   </div> 
+            <Back />
 
-                ))
-              }
-              
+{
+  data.map((m) => (
+    <div className="movieDetailPage" key={m.id}>
+      
+      {/* HERO */}
+      <div 
+        className="heroSection"
+        style={{
+          backgroundImage: `url(https://image.tmdb.org/t/p/original${m.backdrop_path})`
+        }}
+      >
+        <div className="heroOverlay">
+          <h1 className="heroTitle">{m.title}</h1>
+          <p className="heroRating">
+            ⭐ {m.vote_average} / 10
+          </p>
+        </div>
+      </div>
+
+      {/* CONTENIDO */}
+      <div className="movieContent">
+        <p className="overview">{m.overview}</p>
+
+        <div className="extraInfo">
+          <p><span>📅 Estreno:</span> {m.release_date}</p>
+          <p><span>🌐 Idioma:</span> {m.original_language}</p>
+          <p><span>🎭 Géneros:</span> {m.genre_ids.join(", ")}</p>
+          <p><span>🔥 Popularidad:</span> {m.popularity}</p>
+          <p><span>🗳️ Votos:</span> {m.vote_count}</p>
+        </div>
+      </div>
+
+    </div>
+  ))
+}
         </div>
     )
 }

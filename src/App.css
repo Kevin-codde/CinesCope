@@ -1,140 +1,523 @@
+/* ===== RESET BASE ===== */
+* {
+  box-sizing: border-box;
+}
 
-:root{
-  background-color: lch(5.09% 0.59 290.19 / 0.986);
-}
-span{
-  color: #ddd;
-}
-.movieCard {
-  display: inline-block;
-  width: 220px;
-  margin: 1rem;
-  padding: 1rem;
-  background: #1c1c1c;
+body {
+  margin: 0;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: linear-gradient(
+    180deg,
+    #0f0f0f 0%,
+    #141414 60%,
+    #0a0a0a 100%
+  );
   color: #fff;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ===== LAYOUT GENERAL ===== */
+.appLayout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.mainContent {
+  flex: 1;
+  width: 100%;
+  padding: 3rem 4rem;
+}
+
+/* ===== HEADER / NAVBAR ===== */
+.header {
+  width: 100%;
+  position: sticky; /* siempre arriba */
+  top: 0;
+  z-index: 1000;
+  background-color: #0f0f0f;
+  border-bottom: 1px solid #222;
+}
+
+/* Contenedor interno centrado */
+.navbar {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1.2rem 3rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Links principales */
+.nav-link {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #61dafb;
+}
+
+/* Empuja buscador a la derecha */
+.nav-form {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+/* Buscador más elegante */
+.nav-search {
+  padding: 0.7rem 1.2rem;
+  border-radius: 30px;
+  border: 1px solid #333;
+  background-color: #1c1c1c;
+  color: #fff;
+  outline: none;
+  min-width: 260px;
+  transition: all 0.3s ease;
+}
+
+.nav-search:focus {
+  border: 1px solid #61dafb;
+  box-shadow: 0 0 10px rgba(97,218,251,0.3);
+}
+
+/* Botón */
+.nav-button {
+  padding: 0.7rem 1.4rem;
+  border-radius: 30px;
+  border: none;
+  background-color: #61dafb;
+  color: #111;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-button:hover {
+  background-color: #ffcc00;
+  transform: translateY(-2px);
+}
+
+/* Logo más visible */
+.logo {
+  width: 120px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+/* ===== SEARCH ===== */
+.nav-search {
+  padding: 0.6rem 1rem;
+  border-radius: 25px;
+  border: 1px solid #333;
+  background-color: #1c1c1c;
+  color: #fff;
+  outline: none;
+  min-width: 240px;
+  transition: all 0.3s ease;
+}
+
+.nav-search:focus {
+  border: 1px solid #61dafb;
+  box-shadow: 0 0 8px rgba(97,218,251,0.3);
+}
+
+.nav-button {
+  padding: 0.6rem 1.2rem;
+  border-radius: 25px;
+  border: none;
+  background-color: #61dafb;
+  color: #111;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-button:hover {
+  background-color: #ffcc00;
+  transform: translateY(-2px);
+}
+
+/* ===== TITULOS ===== */
+.sectionTitle {
+  font-size: 2rem;
+  margin-bottom: 2.5rem;
+  color: #ffcc00;
+  letter-spacing: 1px;
+}
+
+/* ===== GRID DE PELICULAS ===== */
+.movieGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+/* ===== TARJETAS ===== */
+.movieCard {
+  background: #1c1c1c;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+  transition: all 0.35s ease;
+  cursor: pointer;
 }
 
 .movieCard:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.6);
 }
 
 .movieCard img {
-  border-radius: 8px;
   width: 100%;
-  height: auto;
-  margin-bottom: 0.5rem;
+  height: 320px;
+  object-fit: cover;
+}
+
+.movieCardContent {
+  padding: 1rem;
 }
 
 .movieCard h3 {
-  font-size: 1.1rem;
+  font-size: 1rem;
   margin: 0.5rem 0;
-  color: #ffcc00; /* tono llamativo como el hover de logo */
+  color: #ffcc00;
 }
 
 .movieCard p {
-  font-size: 0.9rem;
-  margin: 0.3rem 0;
-  color: #ddd;
+  font-size: 0.85rem;
+  color: #bbb;
 }
 
 .movieCard .rating {
+  color: #61dafb;
   font-weight: bold;
-  color: #61dafb; /* azul React para mantener coherencia */
 }
 
+/* ===== FOOTER ===== */
 .footer {
-  margin-top: 2rem;
-  padding: 1.5rem;
-  background-color: #1c1c1c;
-  color: #ddd;
+  padding: 2rem;
+  background-color: #111;
+  border-top: 1px solid #222;
   text-align: center;
-  border-top: 1px solid #333;
-}
-
-.footer p {
-  margin: 0.5rem 0;
-  font-size: 0.9rem;
+  color: #aaa;
 }
 
 .footer-links {
-  margin-top: 0.5rem;
+  margin-top: 1rem;
 }
 
 .footer-links a {
-  margin: 0 0.8rem;
-  color: #61dafb; /* azul React para coherencia */
+  margin: 0 1rem;
+  color: #61dafb;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .footer-links a:hover {
-  color: #ffcc00; /* amarillo llamativo como en las tarjetas */
-}
-.header {
-  background-color: #1c1c1c;
-  padding: 1rem 2rem;
-  border-bottom: 1px solid #333;
+  color: #ffcc00;
 }
 
-.navbar {
+/* ===== LOGO ===== */
+.logo {
+  width: 110px;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+.movieDetailPage {
+  color: #fff;
+}
+
+/* HERO CON IMAGEN DE FONDO */
+.heroSection {
+  position: relative;
+  height: 70vh;
+  background-size: cover;
+  background-position: center;
   display: flex;
-  justify-content: space-between; /* perfil a la izquierda, buscador a la derecha */
-  align-items: center;
+  align-items: flex-end;
 }
 
-.nav-link {
+/* Oscurece imagen para que texto sea legible */
+.heroOverlay {
+  width: 100%;
+  padding: 3rem 2rem;
+  background: linear-gradient(
+    to top,
+    rgba(5,5,5,0.95) 10%,
+    rgba(5,5,5,0.7) 40%,
+    rgba(5,5,5,0.2) 80%
+  );
+}
+
+.heroTitle {
+  font-size: 3rem;
+  color: #ffcc00;
+  margin-bottom: 0.5rem;
+}
+
+.heroRating {
+  font-size: 1.2rem;
+  color: #61dafb;
+  font-weight: bold;
+}
+
+/* CONTENIDO DEBAJO */
+.movieContent {
+  max-width: 1000px;
+  margin: 3rem auto;
+  padding: 0 2rem;
+}
+
+.overview {
+  font-size: 1.1rem;
+  line-height: 1.7;
   color: #ddd;
-  text-decoration: none;
-  font-size: 1rem;
-  transition: color 0.3s ease;
+  margin-bottom: 2rem;
 }
 
-.nav-link:hover {
-  color: #61dafb; /* azul React */
+.extraInfo {
+  background-color: #1c1c1c;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid #333;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
 }
 
-.nav-form {
-  display: flex;
+.extraInfo span {
+  color: #61dafb;
+  font-weight: bold;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: 2rem;
+  }
+
+  .heroSection {
+    height: 50vh;
+  }
+}
+
+.backContainer {
+  padding: 1.5rem 2rem;
+}
+
+.backButton {
+  display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-}
-
-.nav-search {
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  border: 1px solid #444;
-  background-color: #2c2c2c;
-  color: #fff;
-  outline: none;
-  transition: border 0.3s ease;
-}
-
-.nav-search:focus {
-  border: 1px solid #61dafb;
-}
-
-.nav-button {
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  border: none;
-  background-color: #61dafb;
-  color: #1c1c1c;
+  padding: 0.6rem 1.4rem;
+  background-color: #1c1c1c;
+  color: #61dafb;
+  text-decoration: none;
   font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  border-radius: 30px;
+  border: 1px solid #333;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-.nav-button:hover {
-  background-color: #ffcc00; /* amarillo cine */
+.backButton:hover {
+  background-color: #ffcc00;
   color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
 }
 
-.logo{
-  width: 105px;
+.notFoundContainer {
+  min-height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
 }
 
+.notFoundCard {
+  background-color: #1c1c1c;
+  padding: 3rem;
+  border-radius: 16px;
+  text-align: center;
+  border: 1px solid #333;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+  max-width: 500px;
+  width: 100%;
+}
+
+.notFoundCard h2 {
+  color: #ffcc00;
+  margin-bottom: 1rem;
+}
+
+.notFoundCard p {
+  color: #ddd;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+.loadingContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem;
+}
+
+.spinner {
+  width: 28px;
+  height: 28px;
+  border: 3px solid #2c2c2c;
+  border-top: 3px solid #61dafb; /* azul React */
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+
+
+/* Animación */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ===============================
+   RESPONSIVE TABLET
+=================================*/
+@media (max-width: 1024px) {
+
+  .mainContent {
+    padding: 2rem;
+  }
+
+  .navbar {
+    padding: 1rem 2rem;
+    gap: 1.5rem;
+  }
+
+  .nav-search {
+    min-width: 180px;
+  }
+
+  .movieCard img {
+    height: 280px;
+  }
+
+  .heroTitle {
+    font-size: 2.2rem;
+  }
+}
+
+
+/* ===============================
+   RESPONSIVE MOBILE
+=================================*/
+@media (max-width: 768px) {
+
+  .mainContent {
+    padding: 1.5rem;
+  }
+
+  /* NAVBAR en columna */
+  .navbar {
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .nav-form {
+    width: 100%;
+    margin-left: 0;
+    justify-content: space-between;
+  }
+
+  .nav-search {
+    width: 100%;
+    min-width: unset;
+    flex: 1;
+  }
+
+  .nav-button {
+    white-space: nowrap;
+  }
+
+  .logo {
+    width: 90px;
+  }
+
+  /* GRID más compacto */
+  .movieGrid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1.2rem;
+  }
+
+  .movieCard img {
+    height: 240px;
+  }
+
+  /* HERO */
+  .heroSection {
+    height: 50vh;
+  }
+
+  .heroOverlay {
+    padding: 2rem 1.5rem;
+  }
+
+  .heroTitle {
+    font-size: 1.8rem;
+  }
+
+  .movieContent {
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+
+  .extraInfo {
+    grid-template-columns: 1fr;
+  }
+
+  .notFoundCard {
+    padding: 2rem;
+  }
+
+}
+
+
+/* ===============================
+   MOBILE PEQUEÑO
+=================================*/
+@media (max-width: 480px) {
+
+  .sectionTitle {
+    font-size: 1.5rem;
+  }
+
+  .heroTitle {
+    font-size: 1.5rem;
+  }
+
+  .movieCard img {
+    height: 200px;
+  }
+
+  .footer-links a {
+    display: block;
+    margin: 0.5rem 0;
+  }
+
+}

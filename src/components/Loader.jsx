@@ -1,11 +1,10 @@
 import React from "react"
 const Loader = function(){
-    return(
-        <div>
-            <p>LOADING⭕...</p>
-
-        </div>
-    )
+      return (
+    <div className="loadingContainer">
+      <div className="spinner"></div>
+    </div>
+  );
 }
 
 
