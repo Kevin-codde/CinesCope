@@ -10,9 +10,9 @@ const dataMovie = async function (){
   }
 };
   try{
-    const peticion = await fetch('https://api.themoviedb.org/3/movie/popular?language=es-ES&page=1', options)
+    const peticion = await fetch(`https://api.themoviedb.org/3/movie/popular?language=es-ES&page=1`, options)
     const data = await peticion.json();
-    return data.results;
+    return data;
     
   }
   catch(e){
@@ -23,7 +23,6 @@ const dataMovie = async function (){
   
 
 }
-
 
 const search = async function(movie){
     const options = {
@@ -37,7 +36,7 @@ const search = async function(movie){
   try{
     const peticion = await fetch(`https://api.themoviedb.org/3/search/movie?query=${movie}&include_adult=false&language=es-ES&page=1`, options)
     const result = await peticion.json();
-    return result.results;
+    return result;
     
   }catch(e){
     console.log('Error encontrado: ',e)
@@ -50,4 +49,4 @@ const search = async function(movie){
 
 
 
-export { dataMovie,search};
+export {dataMovie,search};

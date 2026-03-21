@@ -1,6 +1,6 @@
 import React from "react";
 import MovieCard from '../components/MovieCard'
-import {dataMovie} from '../services/api'
+import {dataMovie,search} from '../services/api'
 import { useState } from "react";
 import SearchBar from "../components/SearchBar";
 import { Link } from "react-router-dom";
@@ -18,7 +18,6 @@ const Home = function(){
           <img src="/CineScope.png" alt="logo" className="logo" />
         </Link>
 
-        <Link to="/user" className="nav-link">👤 User</Link>
 
         <form className="nav-form">
           <input 
@@ -40,7 +39,8 @@ const Home = function(){
         </form>
       </nav>
     </header>
-
+    
+    
     <main className="mainContent">
       {
         !clicked 
@@ -50,14 +50,16 @@ const Home = function(){
               <MovieCard req={dataMovie()} />
             </>
           )
-          : <SearchBar mvs={busqueda}/>
+          : (
+              <> 
+                <SearchBar mvs={search(busqueda)}/>
+              </> )
       }
     </main>
-
     
     
-
-  </div>
+      
+ </div>
 );
 }
 

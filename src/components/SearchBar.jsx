@@ -1,5 +1,4 @@
 import React from "react";
-import { search } from "../services/api";
 import MovieCard from "./MovieCard";
 const SearchBar = function({mvs}){
     
@@ -9,7 +8,7 @@ const SearchBar = function({mvs}){
             
             <span>Resultados de busqueda</span>
             
-            <MovieCard req={search(mvs)}/>
+            <MovieCard req={mvs}/>
         </div>
     )
 }

@@ -17,7 +17,7 @@ const MovieCard = function ({req}){
             try{
 
                 const datosExtraidos = await req
-                setData(datosExtraidos);
+                setData(datosExtraidos.results);
                 setLoad(false)
             }
             catch(e){
@@ -64,6 +64,7 @@ const MovieCard = function ({req}){
                             ))
                             }
                         </ul>
+
                         )
                     : 
                         
@@ -74,8 +75,6 @@ const MovieCard = function ({req}){
                         
                    }
                 
-                
-            
         </div>
     )
 }

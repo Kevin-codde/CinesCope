@@ -521,3 +521,37 @@ body {
   }
 
 }
+
+/* ===== PAGINATION ===== */
+.pagination {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.pageButton {
+  padding: 0.7rem 1.5rem;
+  border-radius: 30px;
+  border: 1px solid #333;
+  background-color: #1c1c1c;
+  color: #61dafb;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pageButton:hover {
+  background-color: #ffcc00;
+  color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.4);
+}
+
+.pageInfo {
+  font-size: 1rem;
+  color: #ccc;
+  letter-spacing: 0.5px;
+}
