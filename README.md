@@ -81,5 +81,10 @@ El propósito de este proyecto es practicar y aplicar conceptos fundamentales de
 - Manejo de estados de carga y error.
 - Consumo de APIs externas.
 
+
+<img width="854" height="621" alt="imagen" src="https://github.com/user-attachments/assets/588c02e5-9ba3-43c9-a59a-3fc2bbbbc752" />
+
+https://kevin-codde.github.io/CinesCope/
+
 ---
 ✨ *CineScope: tu ventana al universo del cine.*
